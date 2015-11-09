@@ -131,8 +131,9 @@ var rotateZ3D = function(theta) {
 initCanvas = function() {
     canvas = document.getElementById('cube');
     if (screen.width < 600 ) {
-        document.getElementById('container').style.width = window.innerHeight + "px";
-        canvas_width = window.innerHeight;
+        var ratio = window.devicePixelRatio || 1;
+        document.getElementById('container').style.width = screen.width + "px";
+        canvas_width = screen.width * ratio;
         sideLen = 0.7 * canvas_width;
     } else {
         document.getElementById('container').style.width = '620px';

@@ -130,18 +130,18 @@ var rotateZ3D = function(theta) {
 
 initCanvas = function() {
     canvas = document.getElementById('cube');
-    if (screen.width < 600 ) {
-        var ratio = window.devicePixelRatio || 1;
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas_width = canvas.width;
+    if (canvas.width < canvas.height) {
         document.getElementById('container').style.width = screen.width + "px";
-        canvas_width = screen.width * ratio;
-        sideLen = 0.7 * canvas_width;
+        sideLen = canvas_width * 0.6;
     } else {
         document.getElementById('container').style.width = '620px';
-        canvas_width = 600;
+        canvas.width = 600;
         sideLen = 100;
+        canvas_width = 600;
     }
-    canvas.width = canvas_width;
-    canvas.height = canvas_width;
 
     context = canvas.getContext('2d');
     context.translate(canvas_width/2, canvas_width/2);

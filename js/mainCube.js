@@ -1,12 +1,22 @@
 var maxz_node;
-var node0 = [-100, -100, -100];
-var node1 = [-100, -100,  100];
-var node2 = [-100,  100, -100];
-var node3 = [-100,  100,  100];
-var node4 = [ 100, -100, -100];
-var node5 = [ 100, -100,  100];
-var node6 = [ 100,  100, -100];
-var node7 = [ 100,  100,  100];
+var sideLen = 100;
+// var node0 = [-100, -100, -100];
+// var node1 = [-100, -100,  100];
+// var node2 = [-100,  100, -100];
+// var node3 = [-100,  100,  100];
+// var node4 = [ 100, -100, -100];
+// var node5 = [ 100, -100,  100];
+// var node6 = [ 100,  100, -100];
+//var node7 = [ 100,  100,  100];
+
+var node0 = [-sideLen, -sideLen, -sideLen];
+var node1 = [-sideLen, -sideLen,  sideLen];
+var node2 = [-sideLen,  sideLen, -sideLen];
+var node3 = [-sideLen,  sideLen,  sideLen];
+var node4 = [ sideLen, -sideLen, -sideLen];
+var node5 = [ sideLen, -sideLen,  sideLen];
+var node6 = [ sideLen,  sideLen, -sideLen];
+var node7 = [ sideLen,  sideLen,  sideLen];
 var nodes = [node0, node1, node2, node3, node4, node5, node6, node7];
 var canvas_width;
 var edge0  = [0, 1];
@@ -123,9 +133,11 @@ initCanvas = function() {
     if (screen.width < 600 ) {
         document.getElementById('container').style.width = screen.width + "px";
         canvas_width = screen.width;
+        sideLen = 0.7 * canvas_width;
     } else {
         document.getElementById('container').style.width = '620px';
         canvas_width = 600;
+        sideLen = 100;
     }
     canvas.width = canvas_width;
     canvas.height = canvas_width;
@@ -288,4 +300,3 @@ window.onload = function() {
     initListeners();
     setInterval(drawCube, timeInt);
 };
-

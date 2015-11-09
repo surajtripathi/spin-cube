@@ -132,19 +132,20 @@ initCanvas = function() {
     canvas = document.getElementById('cube');
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
-    canvas_width = canvas.width;
-    if (canvas.width < canvas.height) {
+   // if (canvas.width < canvas.height) {
         document.getElementById('container').style.width = screen.width + "px";
-        sideLen = canvas_width * 0.6;
-    } else {
-        document.getElementById('container').style.width = '620px';
-        canvas.width = 600;
-        sideLen = 100;
-        canvas_width = 600;
-    }
-
+        if (canvas.width < canvas.height)
+            sideLen = canvas.width * 0.7;
+        else
+            sideLen = canvas.height * 0.7;
+    // } else {
+    //     document.getElementById('container').style.width = '620px';
+    //     canvas.width = 600;
+    //     sideLen = 100;
+    //     canvas_width = 600;
+    // }
     context = canvas.getContext('2d');
-    context.translate(canvas_width/2, canvas_width/2);
+    context.translate(canvas.width/2, canvas.height/2);
 
     rotateY3D((180 / Math.PI));
     rotateX3D((180 / Math.PI));
@@ -152,7 +153,7 @@ initCanvas = function() {
 };
 
 var drawCube = function() {
-    context.clearRect(-(canvas_width/2) , -(canvas_width/2), canvas.width, canvas.height);
+    context.clearRect(-(canvas.width/2) , -(canvas.height/2), canvas.width, canvas.height);
     for ( i=0; i<12; i++) {
         var edge = edges[i];
         var start = nodes[edge[0]];

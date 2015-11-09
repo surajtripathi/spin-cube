@@ -1,13 +1,5 @@
 var maxz_node;
 var sideLen = 100;
-// var node0 = [-100, -100, -100];
-// var node1 = [-100, -100,  100];
-// var node2 = [-100,  100, -100];
-// var node3 = [-100,  100,  100];
-// var node4 = [ 100, -100, -100];
-// var node5 = [ 100, -100,  100];
-// var node6 = [ 100,  100, -100];
-//var node7 = [ 100,  100,  100];
 
 var node0 = [-sideLen, -sideLen, -sideLen];
 var node1 = [-sideLen, -sideLen,  sideLen];
@@ -132,18 +124,11 @@ initCanvas = function() {
     canvas = document.getElementById('cube');
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
-   // if (canvas.width < canvas.height) {
-        document.getElementById('container').style.width = screen.width + "px";
-        if (canvas.width < canvas.height)
-            sideLen = canvas.width * 0.7;
-        else
-            sideLen = canvas.height * 0.7;
-    // } else {
-    //     document.getElementById('container').style.width = '620px';
-    //     canvas.width = 600;
-    //     sideLen = 100;
-    //     canvas_width = 600;
-    // }
+    document.getElementById('container').style.width = screen.width + "px";
+    if (canvas.width < canvas.height)
+        sideLen = canvas.width * 0.7;
+    else
+        sideLen = canvas.height * 0.7;
     context = canvas.getContext('2d');
     context.translate(canvas.width/2, canvas.height/2);
 
